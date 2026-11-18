@@ -1,0 +1,195 @@
+/* Additional Study Abroad Destinations */
+.ad {
+  --ad-navy: #0b1430;
+  --ad-orange: #f47a20;
+  --ad-muted: #34406a;
+  --ad-soft: #fff6ee;
+  max-width: 1380px;
+  margin: 0 auto;
+    padding: 28px clamp(16px, 5vw, 80px) 72px;
+  box-sizing: border-box;
+  background: #ffffff;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  color: var(--ad-navy);
+}
+
+/* ---------- Top: intro left, cards right ---------- */
+.ad-top {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+}
+.ad-intro {
+  flex: 0 0 400px;
+}
+.ad-eyebrow {
+  margin: 0 0 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c25a0e;
+}
+.ad-title {
+  margin: 0 0 20px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--ad-navy);
+}
+.ad-accent {
+  color: var(--ad-orange);
+}
+.ad-text {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 500;
+  color: var(--ad-muted);
+}
+
+/* ---------- Cards ---------- */
+.ad-grid {
+  flex: 1;
+  min-width: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.ad-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 24px;
+  background: #ffffff;
+  border: 1.5px solid var(--ad-orange);
+  border-radius: 16px;
+  box-shadow: 0 14px 30px -24px rgba(11, 20, 48, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.ad-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px -22px rgba(11, 20, 48, 0.55);
+}
+.ad-badge {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--ad-navy);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.ad-name {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ad-navy);
+}
+
+/* "Other international study destinations" card */
+.ad-card--more {
+  background: var(--ad-orange);
+  border-color: var(--ad-orange);
+  box-shadow: none;
+}
+.ad-card--more .ad-badge {
+  background: #ffffff;
+  color: #b8500a;
+  font-size: 26px;
+}
+.ad-card--more .ad-name {
+  font-size: 19px;
+  color: #1a0c00;
+}
+
+/* ---------- Bottom CTA strip ---------- */
+.ad-cta {
+  margin-top: 28px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  background: var(--ad-soft);
+  border: 1.5px solid var(--ad-orange);
+  border-radius: 20px;
+}
+.ad-cta-text {
+  margin: 0;
+  max-width: 760px;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--ad-navy);
+}
+.ad-btn {
+  flex: none;
+  display: inline-block;
+  padding: 16px 30px;
+  border-radius: 999px;
+   background: var(--ad-orange);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+.ad-btn:hover {
+  background: #d9620f;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+.ad-btn:focus-visible {
+  outline: 3px solid rgba(244, 122, 32, 0.45);
+  outline-offset: 3px;
+}
+
+/* ---------- Small laptop / iPad landscape ---------- */
+@media (max-width: 1100px) {
+  .ad-top { gap: 40px; }
+  .ad-intro { flex-basis: 340px; }
+  .ad-text { font-size: 16px; }
+    .ad-card { padding: 14px 20px; gap: 14px; }
+  .ad-name { font-size: 19px; }
+  .ad-card--more .ad-name { font-size: 17px; }
+}
+
+/* ---------- Tablet portrait / phones: stack ---------- */
+@media (max-width: 900px) {
+  .ad { padding-top: 24px; padding-bottom: 56px; }
+  .ad-top { flex-direction: column; align-items: stretch; gap: 32px; }
+  .ad-intro { flex: none; }
+  .ad-cta { margin-top: 24px; padding: 24px 28px; }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 640px) {
+  .ad-grid { grid-template-columns: 1fr; gap: 14px; }
+  .ad-card { padding: 18px 18px; }
+  .ad-badge { width: 46px; height: 46px; font-size: 15px; }
+  .ad-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 22px 20px;
+    border-radius: 18px;
+  }
+  .ad-cta-text { font-size: 16px; }
+  .ad-btn { width: 100%; box-sizing: border-box; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ad-card, .ad-btn { transition: none; }
+  .ad-card:hover, .ad-btn:hover { transform: none; }
+}

@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap");
+
+.swhy {
+  --swhy-navy: #0b1430;
+  --swhy-orange: #f47a20;
+  --swhy-muted: #4a5578;
+  background: #ffffff;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  color: var(--swhy-navy);
+  margin-top: -40px;
+  padding: 0 20px 50px;
+  overflow: hidden;
+}
+
+.swhy-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 24px 48px 44px;
+}
+
+/* ---------- Top block: chinna nundi zoom (prathi sari) ---------- */
+.swhy-top {
+  opacity: 0;
+  transform: scale(0.78);
+  transform-origin: center top;
+}
+
+.swhy.is-visible .swhy-top {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1.2s ease, transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Heading + 6 steps: kindha nundi slow ga paiki (prathi sari) ---------- */
+/* Sub heading: section vachinappudu */
+.swhy-sub {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.swhy.is-visible .swhy-sub {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: 0.3s;
+}
+
+/* 6 cards: prathi card scroll lo screen ki ravagane individual ga */
+.swhy-item {
+  opacity: 0;
+  transform: translateY(90px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.swhy-item.is-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.1s ease, transform 1.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Same row lo okati tarvata okati (desktop) */
+@media (min-width: 961px) {
+  .swhy-item.is-in:nth-child(3n + 2) { transition-delay: 0.18s; }
+  .swhy-item.is-in:nth-child(3n) { transition-delay: 0.36s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swhy-top,
+  .swhy-sub,
+  .swhy-item {
+    opacity: 1;
+    transform: none;
+    transition: none !important;
+  }
+}
+
+/* ---------- Top: copy + visual ---------- */
+.swhy-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.swhy-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #d9722a;
+  margin-bottom: 10px;
+}
+
+.swhy-title {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--swhy-navy);
+  margin: 0 0 18px;
+}
+
+.swhy-title span {
+  color: var(--swhy-orange);
+}
+
+.swhy-copy p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--swhy-muted);
+  margin: 0 0 12px;
+  max-width: 560px;
+}
+
+.swhy-btn {
+  display: inline-block;
+  margin-top: 14px;
+  background: var(--swhy-orange);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 40px;
+  box-shadow: 0 10px 22px rgba(244, 122, 32, 0.28);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.swhy-btn:hover {
+  background: #e06a12;
+  transform: translateY(-2px);
+}
+
+/* ---------- Tilted image cards ---------- */
+.swhy-visual {
+  position: relative;
+  height: 340px;
+}
+
+.swhy-card {
+  position: absolute;
+  border: 7px solid #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 22px 44px rgba(11, 20, 48, 0.2);
+  background: var(--swhy-navy);
+}
+
+.swhy-card img,
+.swhy-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.swhy-card--navy {
+  width: 64%;
+  height: 270px;
+  left: 4%;
+  top: 6px;
+  transform: rotate(-5deg);
+  z-index: 1;
+}
+
+.swhy-card--orange {
+  width: 56%;
+  height: 200px;
+  right: 0;
+  bottom: 6px;
+  transform: rotate(5deg);
+  background: var(--swhy-orange);
+  z-index: 2;
+}
+
+/* ---------- Sub heading + grid ---------- */
+.swhy-sub {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--swhy-navy);
+  margin: 34px 0 20px;
+}
+
+.swhy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 30px;
+}
+
+.swhy-item {
+  border-top: 3px solid var(--swhy-orange);
+  padding-top: 12px;
+}
+
+.swhy-no {
+  display: block;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--swhy-orange);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.swhy-item h4 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--swhy-navy);
+  margin: 0 0 6px;
+}
+
+.swhy-item p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--swhy-muted);
+  margin: 0;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 960px) {
+  .swhy-inner {
+    padding: 18px 22px 36px;
+  }
+
+  .swhy-top {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .swhy-visual {
+    max-width: 460px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .swhy-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+      .swhy {
+    margin-top: -20px;
+    padding: 20px 10px 38px;
+  }
+
+  .swhy-inner {
+    padding: 16px 16px 30px;
+    border-radius: 22px;
+  }
+  .swhy-copy p {
+    font-size: 15px;
+  }
+
+  .swhy-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .swhy-visual {
+    height: 290px;
+  }
+
+  .swhy-card--navy {
+    height: 220px;
+  }
+
+  .swhy-card--orange {
+    height: 165px;
+  }
+
+  .swhy-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}

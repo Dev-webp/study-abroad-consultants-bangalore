@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+.lnav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+.lnav a { text-decoration: none; }
+
+/* ---------- Top strip ---------- */
+.lnav-top {
+  height: 34px;
+  background: linear-gradient(90deg, #ff5e00, #f47a20 55%, #ff9a3c);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 70px;
+}
+.lnav-top span { display: flex; gap: 9px; align-items: center; }
+.lnav-top b { font-weight: 800; }
+.live-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 4px rgba(74, 222, 128, 0.35);
+  animation: blink 1.8s ease-in-out infinite;
+}
+@keyframes blink { 50% { box-shadow: 0 0 0 7px rgba(74, 222, 128, 0); } }
+
+/* ---------- Main bar ---------- */
+.lnav-main {
+  height: 76px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 70px;
+  border-bottom: 1px solid #eef1f7;
+  box-shadow: 0 14px 34px rgba(15, 26, 54, 0.1);
+}
+.lnav-logo img { height: 48px; display: block; }
+
+.lnav-contacts { display: flex; align-items: center; gap: 34px; }
+.lnav-divider { width: 1px; height: 46px; background: #e6eaf3; }
+.lnav-contact { display: flex; gap: 14px; align-items: center; }.lnav-ci {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff5e00, #ff9a3c);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(255, 94, 0, 0.2);
+  transition: transform 0.2s;
+}
+.lnav-contact:hover .lnav-ci { transform: translateY(-3px); }
+.lnav-contact small {
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: 1.6px;
+  font-weight: 800;
+  color: #8a94ab;
+  margin-bottom: 2px;
+}
+.lnav-contact b { font-size: 14.5px; color: #0f1a36; font-weight: 700; white-space: nowrap; }
+/* ---------- Buttons ---------- */
+.lnav-actions { display: flex; align-items: center; gap: 14px; }
+.lnav-call { display: none; }
+
+.btn-wa {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+   font-weight: 800;
+  font-size: 13.5px;
+  padding: 11px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(34, 197, 94, 0.28);
+    transition: transform 0.2s;
+}
+.btn-wa:hover { transform: translateY(-2px); }
+
+.btn-cta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  white-space: nowrap;
+  background: linear-gradient(95deg, #0f1a36, #1d3a8a);
+  color: #fff;
+    font-weight: 800;
+  font-size: 13.5px;
+  padding: 6px 6px 6px 20px;
+  border-radius: 40px;
+  box-shadow: 0 8px 18px rgba(15, 26, 54, 0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-cta:hover { transform: translateY(-2px); box-shadow: 0 16px 30px rgba(15, 26, 54, 0.45); }
+.btn-cta i {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  color: #0f1a36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-cta .short { display: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .lnav-top, .lnav-main { padding-left: 24px; padding-right: 24px; }
+  .lnav-contacts { display: none; }
+}
+
+@media (max-width: 640px) {
+  .lnav-top { justify-content: center; font-size: 12px; padding: 0 12px; }
+  .lnav-open { display: none !important; }
+  .lnav-main { height: 74px; }
+  .lnav-logo img { height: 44px; }
+  .lnav-actions { gap: 8px; }
+
+  .lnav-call {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #fff3e8;
+    color: #f45e00;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-wa { padding: 0; width: 44px; height: 44px; justify-content: center; border-radius: 12px; }
+  .btn-wa span { display: none; }
+  .btn-cta { font-size: 12.5px; padding: 5px 5px 5px 14px; gap: 8px; }
+  .btn-cta i { width: 32px; height: 32px; }
+  .btn-cta .full { display: none; }
+  .btn-cta .short { display: inline; }
+}
+
+@media (max-width: 400px) {
+  .btn-cta .short { display: none; }
+  .btn-cta { padding: 5px; }
+}
+/* Orange to blue gradient: colour matrame marchutundi, size/shape/arrow same */
+.nav-grad-btn {
+  background: linear-gradient(90deg, #ff5a00 0%, #ff5a00 45%, #3f7bff 100%) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 10px 24px rgba(63, 123, 255, 0.28) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.nav-grad-btn:hover {
+  background: linear-gradient(90deg, #ff5a00 0%, #ff5a00 45%, #3f7bff 100%) !important;
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(63, 123, 255, 0.4) !important;
+}
+/* Book Free Counselling: orange + blue gradient */
+.btn-cta.btn-cta--grad {
+  background: linear-gradient(90deg, #ff5a00 0%, #ff5a00 45%, #3f7bff 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(63, 123, 255, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.btn-cta.btn-cta--grad:hover {
+  background: linear-gradient(90deg, #ff5a00 0%, #ff5a00 45%, #3f7bff 100%);
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(63, 123, 255, 0.4);
+}
+/* WhatsApp button konchem left ki (desktop matrame) */
+@media (min-width: 981px) {
+  .lnav-actions .btn-wa {
+    margin-right: 28px;
+  }
+}

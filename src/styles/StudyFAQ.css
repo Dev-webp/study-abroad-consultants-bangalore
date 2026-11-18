@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap");
+
+.sfaq {
+  --sq-navy: #0b1430;
+  --sq-orange: #f47a20;
+  --sq-muted: #4a5578;
+  background: #ffffff;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  color: var(--sq-navy);
+  margin-top: -50px;
+  padding: 20px 20px 80px;
+  overflow: hidden;
+}
+
+.sfaq-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ---------- Heading ---------- */
+.sfaq-head {
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto 44px;
+  opacity: 0;
+  transform: scale(0.85) translateY(30px);
+}
+
+.sfaq.is-visible .sfaq-head {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: opacity 1s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sfaq-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d9722a;
+  margin-bottom: 12px;
+}
+
+.sfaq-title {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(26px, 3.6vw, 42px);
+  line-height: 1.22;
+  font-weight: 700;
+  color: var(--sq-navy);
+  margin: 0;
+}
+
+.sfaq-title span {
+  color: var(--sq-orange);
+}
+
+/* ---------- Grid ---------- */
+.sfaq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 24px;
+  align-items: start;
+}
+
+.sfaq-item {
+  background: #ffffff;
+  border: 1.5px solid #e8ebf3;
+  border-radius: 20px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 0.5s ease, transform 0.5s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.sfaq-item.is-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+@media (min-width: 861px) {
+  .sfaq-item.is-in:nth-child(2n) {
+    transition-delay: 0.15s, 0.15s, 0s, 0s, 0s;
+  }
+}
+
+.sfaq-item:hover {
+  border-color: #f9b98a;
+}
+
+.sfaq-item.is-open {
+  border-color: var(--sq-orange);
+  background: #fffaf5;
+  box-shadow: 0 16px 38px rgba(244, 122, 32, 0.12);
+}
+
+/* ---------- Question ---------- */
+.sfaq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: var(--sq-navy);
+}
+
+.sfaq-no {
+  flex: none;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--sq-orange);
+  line-height: 1;
+  min-width: 30px;
+}
+
+.sfaq-qtext {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.sfaq-icon {
+  position: relative;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #fff1e6;
+  transition: background 0.3s ease, transform 0.35s ease;
+}
+
+.sfaq-icon::before,
+.sfaq-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 2px;
+  background: var(--sq-orange);
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s ease, transform 0.35s ease;
+}
+
+.sfaq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.sfaq-item.is-open .sfaq-icon {
+  background: var(--sq-navy);
+}
+
+.sfaq-item.is-open .sfaq-icon::before,
+.sfaq-item.is-open .sfaq-icon::after {
+  background: #fff;
+}
+
+.sfaq-item.is-open .sfaq-icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.sfaq-q:focus-visible {
+  outline: 3px solid rgba(244, 122, 32, 0.4);
+  outline-offset: -3px;
+  border-radius: 20px;
+}
+
+/* ---------- Answer (content DOM lo ne untundi, SEO ki manchidi) ---------- */
+.sfaq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s ease;
+}
+
+.sfaq-item.is-open .sfaq-a {
+  grid-template-rows: 1fr;
+}
+
+.sfaq-a-inner {
+  overflow: hidden;
+}
+
+.sfaq-a p {
+  margin: 0;
+  padding: 0 22px 22px 68px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--sq-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sfaq-head,
+  .sfaq-item {
+    opacity: 1;
+    transform: none;
+    transition: none !important;
+  }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 860px) {
+  .sfaq-inner {
+    padding: 0 10px;
+  }
+
+  .sfaq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .sfaq {
+    padding: 28px 12px 56px;
+  }
+
+  .sfaq-inner {
+    padding: 0;
+  }
+
+  .sfaq-head {
+    margin-bottom: 30px;
+  }
+
+  .sfaq-q {
+    padding: 16px 16px;
+    gap: 12px;
+  }
+
+  .sfaq-no {
+    font-size: 18px;
+    min-width: 24px;
+  }
+
+  .sfaq-qtext {
+    font-size: 15px;
+  }
+
+  .sfaq-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .sfaq-a p {
+    padding: 0 16px 18px 52px;
+    font-size: 14.5px;
+  }
+}
